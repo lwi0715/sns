@@ -1,6 +1,8 @@
+import Header from "@/components/Header";
 import "./globals.css";
 import type { Metadata } from "next";
 import { Open_Sans } from "next/font/google";
+import DarkmodeProvider from "@/context/DarkmodeProvider";
 
 const OpenSans = Open_Sans({ subsets: ["latin"] });
 
@@ -16,7 +18,18 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={OpenSans.className}>{children}</body>
+      <DarkmodeProvider>
+        <body
+          className={`${"bg-slate-200 dark:bg-slate-800"} + ${
+            OpenSans.className
+          }`}
+        >
+          <header>
+            <Header />
+          </header>
+          <main>{children}</main>
+        </body>
+      </DarkmodeProvider>
     </html>
   );
 }
