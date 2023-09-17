@@ -18,18 +18,18 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <DarkmodeProvider>
-        <body
-          className={`${"bg-slate-200 dark:bg-slate-800"} + ${
-            OpenSans.className
-          }`}
-        >
-          <header>
+      <body
+        className={`${"bg-slate-200 dark:bg-slate-800 w-full max-w-screen-lg overflow-auto mx-auto"} + ${
+          OpenSans.className
+        }`}
+      >
+        <DarkmodeProvider>
+          <header className="sticky top-0 bg-blue-200 dark:bg-slate-700 z-10 border-b border-white dark:border-gray-400">
             <Header />
           </header>
           <main>{children}</main>
-        </body>
-      </DarkmodeProvider>
+        </DarkmodeProvider>
+      </body>
     </html>
   );
 }
