@@ -7,6 +7,8 @@ import DarkmodeButton from "./ui/DarkmodeButton";
 import Button from "./ui/Button";
 import { usePathname } from "next/navigation";
 import PostingIcon from "./ui/reactIcons/PostingIcon";
+import { useSession, signIn, signOut } from "next-auth/react";
+
 const navbarMenu = [
   {
     href: "/search",
@@ -22,6 +24,7 @@ const navbarMenu = [
   },
 ];
 export default function Header() {
+  const { data: session } = useSession(); //session이 있으면 login 된거 없으면 안된거
   const pathName = usePathname();
   return (
     <section className="flex justify-between items-center pl-6">
@@ -46,7 +49,21 @@ export default function Header() {
             <DarkmodeButton />
           </li>
           <li key="login">
-            <Button text="Login" onClick={() => {}} />
+            {session ? (
+              <Button
+                text="Logout"
+                onClick={() => {
+                  signOut();
+                }}
+              />
+            ) : (
+              <Button
+                text="Login"
+                onClick={() => {
+                  signIn();
+                }}
+              />
+            )}
           </li>
         </ul>
       </nav>

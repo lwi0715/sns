@@ -8,7 +8,7 @@ export default function DarkmodeButton() {
   return (
     <div>
       <button onClick={() => setTheme(theme === "light" ? "dark" : "light")}>
-        <DarkmodeIcon theme={theme} />
+        <DarkmodeIcon theme={theme || "light"} />
       </button>
     </div>
   );

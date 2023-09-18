@@ -3,6 +3,7 @@ import "./globals.css";
 import type { Metadata } from "next";
 import { Open_Sans } from "next/font/google";
 import DarkmodeProvider from "@/context/DarkmodeProvider";
+import AuthProvider from "@/context/AuthProvider";
 
 const OpenSans = Open_Sans({ subsets: ["latin"] });
 
@@ -24,10 +25,12 @@ export default function RootLayout({
         }`}
       >
         <DarkmodeProvider>
-          <header className="sticky top-0 bg-blue-200 dark:bg-slate-700 z-10 border-b border-white dark:border-gray-400">
-            <Header />
-          </header>
-          <main>{children}</main>
+          <AuthProvider>
+            <header className="sticky top-0 bg-blue-200 dark:bg-slate-700 z-10 border-b border-white dark:border-gray-400">
+              <Header />
+            </header>
+            <main>{children}</main>
+          </AuthProvider>
         </DarkmodeProvider>
       </body>
     </html>

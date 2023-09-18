@@ -2,7 +2,7 @@
 
 import { BsFillMoonFill, BsSun } from "react-icons/bs";
 type Props = {
-  theme: string | undefined;
+  theme: string;
 };
 export default function DarkmodeIcon({ theme = "light" }: Props) {
   return (
