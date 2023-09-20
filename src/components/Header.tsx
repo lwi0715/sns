@@ -55,6 +55,7 @@ export default function Header() {
                 onClick={() => {
                   signOut();
                 }}
+                bgColor="bg-red-400 dark:bg-slate-500"
               />
             ) : (
               <Button
@@ -62,6 +63,7 @@ export default function Header() {
                 onClick={() => {
                   signIn();
                 }}
+                bgColor="bg-red-400 dark:bg-slate-500"
               />
             )}
           </li>

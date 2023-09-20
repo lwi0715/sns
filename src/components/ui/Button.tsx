@@ -1,13 +1,22 @@
 type Props = {
   text: string;
   onClick: () => void;
+  bgColor: string;
+  size?: "normal" | "large";
 };
 
-export default function Button({ text, onClick }: Props) {
+export default function Button({
+  text,
+  onClick,
+  bgColor,
+  size = "normal",
+}: Props) {
   return (
     <button
       onClick={onClick}
-      className="p-4 bg-red-400 dark:bg-slate-500 text-white font-bold hover:opacity-80 transition-opacity"
+      className={`${
+        size === "large" ? "p-8 text-xl" : "p-4"
+      } ${bgColor} text-white font-bold hover:opacity-80 transition-opacity`}
     >
       {text}
     </button>
